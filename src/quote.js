@@ -26,6 +26,10 @@ class Quote extends Component {
         this.newQuote();
       });
   }
+  tweetQuote = () => {
+    let twitterURL = `https://twitter.com/intent/tweet?text=${this.state.quote} - ${this.state.author}`;
+    window.open(twitterURL, "_blank");
+  };
   render() {
     if (this.state.quote) {
       return (
@@ -38,7 +42,11 @@ class Quote extends Component {
             <span className="author">{this.state.author}</span>
           </div>
           <div className="button-container">
-            <button className="button-twitter" title="share">
+            <button
+              className="button-twitter"
+              title="share"
+              onClick={this.tweetQuote}
+            >
               <i className="fab fa-twitter"></i>
             </button>
             <button
